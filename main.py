@@ -1,6 +1,6 @@
 # This is the main file.
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm
+from flask import Flask, render_template, url_for, flash, redirect, request
+from forms import RegistrationForm, RecipeSearchForm
 from login import LoginForm
 from flask_behind_proxy import FlaskBehindProxy
 from flask_sqlalchemy import SQLAlchemy
@@ -70,7 +70,7 @@ def login():
             else:
                 flash('You have input the incorrect login information or password')
     return render_template('signin.html', title='Log In', form=login)
-@app.route("/user")
+@app.route("/user", methods=['GET', 'POST'])
 def user():
     subtitle = ''
     text = ''
@@ -80,6 +80,16 @@ def user():
     else:
         subtitle = f'Hello {name}'
         text = 'You are logged in to the user page'
-    return render_template('user_page.html', subtitle=subtitle, text=text )
+    
+    search = RecipeSearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
+
+    return render_template('user_page.html', subtitle=subtitle, text=text, form = search )
+
+@app.route("/results")
+def search_results(search):
+    pass
 if __name__ == '__main__':               # this should always be at the end
     app.run(debug=True, host="0.0.0.0")
+
