@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<<<<<<< HEAD
 <div class = "searchbar">
     <h1>{{ subtitle }}</h1>
     <p>{{ text }}</p>
@@ -9,4 +10,29 @@
         {{form.search}}
     </d1>
 </div>
+=======
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <h1><center>{{ subtitle }}<center></h1>
+    <p><center>{{ text }}</center></p>
+    <form class="search" method="post" action="" 
+         style="margin:auto;max-width:600px">
+            <input type="text" placeholder="Search by recipe or by two main ingredients" name="recipe">
+            <button type="submit"><i class="fa fa-search"></i>
+            </button>
+    </form>
+    <p></p>
+    <!---<d1>
+        {{form.select}}
+        {{form.search}}
+    </d1>--->
+</body>
+</html>
+>>>>>>> e0ee8a3b795ba955a499cfea9f698ecb8d904e82
 {% endblock content %}

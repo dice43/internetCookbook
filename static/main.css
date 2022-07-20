@@ -3,13 +3,16 @@ body {
   color: #333333;
   margin-top: 5rem;
 }
+* {
+  box-sizing: border-box;
+}
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
 .bg-steel {
-  background-color: hsl(308, 83%, 28%);
+  background-color: #830c73;
 }
 
 .site-header .navbar-nav .nav-link { 
@@ -94,4 +97,36 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.recipe-heading{
+  margin-top: 25% 
+}
+
+form.search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+form.search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+form.search button:hover {
+  background: #0b7dda;
+}
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
 }
