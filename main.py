@@ -23,9 +23,12 @@ class User(db.Model):
   def __repr__(self):
     return f"User('{self.username}', '{self.email}')"
 
-@app.route("/")                          # this tells you the URL the method below is related to
+@app.route("/", methods=['GET', 'POST'])                          # this tells you the URL the method below is related to
 def home():
-    return render_template('home.html', subtitle='Home Page', text='This is the home page')      # this prints HTML to the webpage
+    search = RecipeSearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
+    return render_template('home.html', subtitle='Welcome to the Internet Cookbook', text='Browse the recipes or search for one')      # this prints HTML to the webpage
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -87,9 +90,11 @@ def user():
 
     return render_template('user_page.html', subtitle=subtitle, text=text, form = search )
 
-@app.route("/results")
+@app.route("/results", methods=["POST"])
 def search_results(search):
-    pass
+    result = request.form['recipe']
+    subtitle = f'Recipe results for {result}'
+    return render_template('results.html', subtitle=subtitle)
 if __name__ == '__main__':               # this should always be at the end
     app.run(debug=True, host="0.0.0.0")
 
