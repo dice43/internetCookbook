@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: hsl(308, 83%, 28%);
 }
 
-.site-header .navbar-nav .nav-link {
+.site-header .navbar-nav .nav-link { 
   color: #cbd5db;
 }
 
@@ -22,6 +22,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
+}
+
+.image{
+  width: 30px;
+  height: 20px;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: rgb(199, 196, 196);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+.searchbar {
+  text-align: center;
 }
 
 .content-section {
