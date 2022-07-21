@@ -1,4 +1,4 @@
-wk4/frontend-copy
+#wk4/frontend-copy
 # This is the main file.
 from flask import Flask, render_template, url_for, flash, redirect, request
 from forms import RegistrationForm, RecipeSearchForm
@@ -31,7 +31,27 @@ def home():
     search = RecipeSearchForm(request.form)
     if request.method == 'POST':
         return search_results(search)
-    return render_template('home.html', subtitle='Welcome to the Internet Cookbook', text='Browse the recipes or search for one')      # this prints HTML to the webpage
+    
+    e = Edamam(
+    recipes_appid=os.environ.get('RECIPE_ID'),
+    recipes_appkey=os.environ.get('RECIPE_KEY'))
+    
+    main_ingred_one = 'tofu'
+    main_ingred_two = 'pasta'
+    main_ingred_three = 'ice cream'
+    collection_one = e.search_recipe(main_ingred_one)['hits']
+    collection_two = e.search_recipe(main_ingred_two)['hits']
+    collection_three = e.search_recipe(main_ingred_three)['hits']
+    
+    recipe_info = []
+    recipe_info2 = []
+    recipe_info3 = []
+    for i in range(2):
+        recipe_info.append(collection_one[i]['recipe'])
+        recipe_info2.append(collection_two[i]['recipe'])
+        recipe_info3.append(collection_three[i]['recipe'])
+
+    return render_template('home.html', subtitle='Welcome to the Internet Cookbook', text='Browse the recipes or search for one', row_one=recipe_info, row_two=recipe_info2, row_three=recipe_info3)      # this prints HTML to the webpage
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -113,6 +133,7 @@ def search_results(search):
 
     
     return render_template('results.html', subtitle=subtitle, recipes=recipe_info)
+    
 if __name__ == '__main__':               # this should always be at the end
     app.run(debug=True, host="0.0.0.0")
 

@@ -22,7 +22,7 @@ p{
 }
 
 .bg-steel {
-  background-color: #830c73;
+  background-color: #ff0000b6;
 }
 
 .site-header .navbar-nav .nav-link { 
@@ -106,13 +106,35 @@ a.article-title:hover {
 }
 
 .recipe-heading{
-  margin-top: 25%;
+  margin-top: 20px;
 }
 
 .image{
-  margin-left: 130px;
-  width: 250px;
-  height: 300px;
+  width: 750px;
+  height: 100px;
+  margin: 25px;
+}
+
+/* .column{
+  display: inline-block;
+  float: left;
+  width: 33.33%;
+  padding: 2px;
+}
+
+.row::after{
+  text-align: center  
+} */
+
+img{
+  border: lightcoral;
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 16);
+}
+
+.results{
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
 }
 
 form.search input[type=text] {
@@ -141,4 +163,20 @@ form.search::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.block {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+}
+
+.container {
+  background-color: #ffffff;
+  text-align: centre;
+}
+
+.block img {
+  width: 200px;
+  height: 200px;
 }

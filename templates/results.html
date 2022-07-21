@@ -1,11 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
 <style>
+        body {
+            background-image: url("/static/image/ingredientsStock.jpg"); 
+        }
+</style>
+<style>
     h2 {
         width:auto;
         height:78px;
-        background-color:##ffffff;
-        border:2px solid #830c73;
+        background-color:#ffffff;
+        border:2px solid #ff0000b6;
         padding:20px;
     }
 </style>
@@ -18,12 +23,15 @@
 </ul>-->
 
 {% for recipe in recipes %}
-  <div>{{ recipe['label'] }}</div>
+  <div><b>{{ recipe['label'] }}</b></div>
   <div>
-      <img src="{{ recipe['image'] }}">
+      <a href="{{ recipe['url'] }}", onclick="window.open('{{ recipe['url'] }}')" >
+        <img class = "results" src="{{ recipe['image'] }}">
+      </a>
   </div>
-  <div>{{ recipe['url'] }}
-  </div>
+  <!-- <div>
+    <a class="recipe link" href={{ recipe['url'] }}>Recipe Link</a>
+  </div> -->
 
 {% endfor %}
 
