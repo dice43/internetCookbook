@@ -5,6 +5,8 @@ from login import LoginForm
 from flask_behind_proxy import FlaskBehindProxy
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from py_edamam import Edamam
+import os
 
 app = Flask(__name__)                    # this gets the name of the file so Flask knows it's name
 proxied = FlaskBehindProxy(app)  ## add this line
@@ -94,7 +96,22 @@ def user():
 def search_results(search):
     result = request.form['recipe']
     subtitle = f'Recipe results for {result}'
-    return render_template('results.html', subtitle=subtitle)
+
+    e = Edamam(
+    recipes_appid=os.environ.get('RECIPE_ID'),
+    recipes_appkey=os.environ.get('RECIPE_KEY'))
+
+    main_ingred = result
+
+    collection = e.search_recipe(main_ingred)['hits']
+    
+    recipe_info = []
+    for i in range(len(collection)):
+        recipe_info.append(collection[i]['recipe'])
+        
+
+    
+    return render_template('results.html', subtitle=subtitle, recipes=recipe_info)
 if __name__ == '__main__':               # this should always be at the end
     app.run(debug=True, host="0.0.0.0")
 

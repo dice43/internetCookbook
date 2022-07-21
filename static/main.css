@@ -3,12 +3,22 @@ body {
   color: #333333;
   margin-top: 5rem;
 }
-* {
+
+/* * {
   box-sizing: border-box;
-}
+} */
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
+  
+}
+
+.welc{
+  text-align: center;
+}
+
+p{
+  text-align: center;
 }
 
 .bg-steel {
@@ -45,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin: 0 150px;
 }
 
 .article-title {
@@ -96,7 +106,13 @@ a.article-title:hover {
 }
 
 .recipe-heading{
-  margin-top: 25% 
+  margin-top: 25%;
+}
+
+.image{
+  margin-left: 130px;
+  width: 250px;
+  height: 300px;
 }
 
 form.search input[type=text] {

@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>
+
+    <p class = "reg_instruction">
       Please enter your information to sign up
-    </h1>
+    </p>
+
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}

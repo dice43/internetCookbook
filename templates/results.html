@@ -11,7 +11,21 @@
 </style>
 <h2><center>{{ subtitle }}<center></h2>
 <p>{{ text }}</p>
+<!--<ul>
+{% for recipe in recipes %}
+  <li>{{ recipe }}</li>
+{% endfor %}  
+</ul>-->
 
+{% for recipe in recipes %}
+  <div>{{ recipe['label'] }}</div>
+  <div>
+      <img src="{{ recipe['image'] }}">
+  </div>
+  <div>{{ recipe['url'] }}
+  </div>
+
+{% endfor %}
 
 
 {% endblock content %}
