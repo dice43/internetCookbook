@@ -59,6 +59,11 @@ p{
   font-family: Arial;
 }
 
+.navbar a:hover{
+  text-decoration: underline;
+  color: rgb(199, 196, 196);
+}
+
 .content-section {
   background: #ffffff;
   padding: 10px 20px;
@@ -204,6 +209,7 @@ form.search::after {
   text-align: center;
   color: rgb(10, 92, 41);
   font-size: medium;
+  text-align: center;
 }
 
 .contentbox{
@@ -213,4 +219,5 @@ form.search::after {
   background-color: beige;
   padding: 2px;
   border: 2px solid #ffe5b4;
+  text-align: center;
 }

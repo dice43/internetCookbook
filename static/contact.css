@@ -1,0 +1,33 @@
+
+.cont{
+    text-align: center;
+    font-style: oblique;
+    font-size: 40px;
+    color: #ffe5b4;
+}
+
+.feature{
+    background-color: #ff0000b6;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.feature a{
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: rgb(199, 196, 196);
+}
+
+.feature a:hover{
+    text-decoration: underline;
+    color: rgb(199, 196, 196);
+}
+
+.row h3{
+    font-size: 30px;
+    color: #ffe5b4;
+}
