@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+        body {
+            background-image: url("/static/image/ingredientsStock.jpg"); 
+        }
+</style>
+<style>
+    h2 {
+        width:auto;
+        height:78px;
+        background-color:#ffffff;
+        border:2px solid #ff0000b6;
+        padding:20px;
+    }
+</style>
+<h2><center>{{ subtitle }}<center></h2>
+<p>{{ text }}</p>
+
+  {% for recipe in recipes %}
+    <div class="column contentbox">
+      <div class = "food"><b>{{ recipe['label'] }}</b> </div> 
+      <a href="{{ recipe['url'] }}", onclick="window.open('{{ recipe['url'] }}')" >
+        <img class = "results" src="{{ recipe['image'] }}" style ="width:100%">
+      </a>
+        <p><b> Calories:</b> {{ recipe['calories'] }}</p>
+        <p><b> Meal Type:</b> {{recipe['mealType'][0]}}</p>
+        <p><b> Dish Type:</b> {{recipe['dishType'][0]}}</p>
+        <p><b> Nationality:</b> {{recipe['cuisineType'][0]}}</p>
+
+        <!-- <p><b> Ingredients: </b></p>
+        {% for ingredient in recipe['ingredientLines'] %}
+          <p> {{ingredient}} </p>
+        {% endfor %}  -->
+                
+      <form action="/save" method='POST'>
+        <button name="saveBtn" type="submit" value="{{ recipe['url'] }}" user=""><i class="fa fa-heart" style="color:red"></i></button>
+   
+      </form>  </div>
+    
+
+  <!-- <div>
+    <a class="recipe link" href={{ recipe['url'] }}>Recipe Link</a>
+  </di-->
+
+<!-- <script>
+  fetch("/save")
+</script> -->
+
+</div>{% endfor %}</div>
+
+
+{% endblock content %}

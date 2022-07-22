@@ -1,0 +1,72 @@
+{% extends "layout.html" %} {% block content %} <html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url("/static/image/ingredientsStock.jpg"); 
+        }
+    </style>
+</head>
+
+<body> 
+
+        <h2 class="welc">{{ subtitle }}</h2>
+        <p class="home_text">
+            {{ text }}
+        </p>
+        <form class="search" method="post" action="" style="margin:auto;max-width:600px">
+            <input type="text" placeholder="Search by recipe or by two main ingredients" name="recipe">
+            <button type="submit"><i class="fa fa-search"></i>
+            </button>
+        </form>
+        <p><br></br></p>
+        <form class="recipe-heading">
+            <h2 class="Title">
+                Top Recipes
+            </h2>
+            <div class="container">
+
+                <div class="block">  <p class="label">Tofu Banana Mousse</p>
+                    <a href="https://food52.com/recipes/18565-tofu-banana-mousse" , onclick="window.open('https://food52.com/recipes/18565-tofu-banana-mousse')">
+                        <img src="/static/image/bakedTofu.jpg"> </a>
+                </div>                 
+
+                <div class="block"> <p class="label">Pasta alla Gricia</p>
+                    <a href="https://www.seriouseats.com/pasta-alla-gricia" , onclick="window.open('https://www.seriouseats.com/pasta-alla-gricia')">
+                        <img src="/static/image/pastaGrezio.jpg"> </a>
+                </div>
+                
+                <div class="block">  <p class="label">Ice Cream Bombe</p>
+                    <a href="https://www.marthastewart.com/316880/ice-cream-bombe" , onclick="window.open('https://www.marthastewart.com/316880/ice-cream-bombe">
+                        <img src="/static/image/iceCreamBombe.jpg"></a>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="block">               
+
+                    <p class="label">Baked Tofu</p>
+                    <a href="https://www.marthastewart.com/1049665/baked-tofu" , onclick="window.open('https://www.marthastewart.com/1049665/baked-tofu">
+                        <img src="/static/image/tofuRecipe.jpg"> </a>
+                </div>
+                
+                <div class="block">  <p class="label">Rainbow Ice Cream Pops</p>
+                    <a href="https://www.seriouseats.com/dessert-recipes-5117878" , onclick="window.open('https://www.seriouseats.com/dessert-recipes-5117878'">
+                        <img src="/static/image/rainbowIce.jpg"> </a>
+    
+                </div> 
+                <div class="block">  <p class="label">Pasta Frittata</p>
+                    <a href="https://www.foodrepublic.com/recipes/pasta-frittata-recipe/" , onclick="window.open('https://www.foodrepublic.com/recipes/pasta-frittata-recipe/">
+                        <img src="/static/image/pastaFrittata.jpg"></a>
+                </div>
+            </div>
+            
+        </form>
+
+    <body>
+
+</html> {% endblock content %}

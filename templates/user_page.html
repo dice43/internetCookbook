@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url("/static/image/ingredientsStock.jpg"); 
+        }
+    </style>
+</head>
+<body>
+    <h1 class="Title">{{ subtitle }}</h1>
+    <p class="home_text">{{ text }}</p>
+    <form class="search" method="post" action="" 
+         style="margin:auto;max-width:600px">
+            <input type="text" placeholder="Search by recipe or by two main ingredients" name="recipe">
+            <button type="submit"><i class="fa fa-search"></i>
+            </button>
+    </form>
+    <p></p>
+    <!---<d1>
+        {{form.select}}
+        {{form.search}}
+    </d1>--->
+</body>
+</html>
+{% endblock content %}
