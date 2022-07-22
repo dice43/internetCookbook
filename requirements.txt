@@ -13,3 +13,4 @@ pytest
 pycodestyle
 flask_bcrypt
 py_edamam
+requests
