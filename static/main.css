@@ -59,14 +59,13 @@ p{
   font-family: Arial;
 }
 
-<<<<<<< HEAD
+
 .navbar a:hover{
   text-decoration: underline;
   color: rgb(199, 196, 196);
 }
 
-=======
->>>>>>> 97996f02d99048718a55303ac733180478cd68d2
+
 .content-section {
   background: #ffffff;
   padding: 10px 20px;
@@ -212,10 +211,7 @@ form.search::after {
   text-align: center;
   color: rgb(10, 92, 41);
   font-size: medium;
-<<<<<<< HEAD
   text-align: center;
-=======
->>>>>>> 97996f02d99048718a55303ac733180478cd68d2
 }
 
 .contentbox{
@@ -225,8 +221,5 @@ form.search::after {
   background-color: beige;
   padding: 2px;
   border: 2px solid #ffe5b4;
-<<<<<<< HEAD
   text-align: center;
-=======
->>>>>>> 97996f02d99048718a55303ac733180478cd68d2
 }
