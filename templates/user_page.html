@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="/static/main.css">
     <style>
         body {
-            background-image: url("/static/image/ingredientsStock.jpg"); 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url("/static/image/ingredientsStock.jpg"); 
         }
     </style>
 </head>
 <body>
-    <h1><center>{{ subtitle }}<center></h1>
-    <p>{{ text }}</p>
+    <h1 class="Title">{{ subtitle }}</h1>
+    <p class="home_text">{{ text }}</p>
     <form class="search" method="post" action="" 
          style="margin:auto;max-width:600px">
             <input type="text" placeholder="Search by recipe or by two main ingredients" name="recipe">

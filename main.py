@@ -18,13 +18,21 @@ db = SQLAlchemy(app)
 name = None
 
 class User(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  username = db.Column(db.String(20), unique=True, nullable=False)
-  email = db.Column(db.String(120), unique=True, nullable=False)
-  password = db.Column(db.String(60), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(60), nullable=False)
+    
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}')"
 
-  def __repr__(self):
-    return f"User('{self.username}', '{self.email}')"
+class Recipe(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), nullable=False)
+    recipe_url = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return f"User('{self.username}') has saved Recipe('{self.recipe_url}')"
 
 @app.route("/", methods=['GET', 'POST'])                          # this tells you the URL the method below is related to
 def home():
@@ -36,22 +44,22 @@ def home():
     recipes_appid=os.environ.get('RECIPE_ID'),
     recipes_appkey=os.environ.get('RECIPE_KEY'))
     
-    main_ingred_one = 'tofu'
-    main_ingred_two = 'pasta'
-    main_ingred_three = 'ice cream'
-    collection_one = e.search_recipe(main_ingred_one)['hits']
-    collection_two = e.search_recipe(main_ingred_two)['hits']
-    collection_three = e.search_recipe(main_ingred_three)['hits']
+    # main_ingred_one = 'tofu'
+    # main_ingred_two = 'pasta'
+    # main_ingred_three = 'ice cream'
+    # collection_one = e.search_recipe(main_ingred_one)['hits']
+    # collection_two = e.search_recipe(main_ingred_two)['hits']
+    # collection_three = e.search_recipe(main_ingred_three)['hits']
     
-    recipe_info = []
-    recipe_info2 = []
-    recipe_info3 = []
-    for i in range(2):
-        recipe_info.append(collection_one[i]['recipe'])
-        recipe_info2.append(collection_two[i]['recipe'])
-        recipe_info3.append(collection_three[i]['recipe'])
+    # recipe_info = []
+    # recipe_info2 = []
+    # recipe_info3 = []
+    # for i in range(2):
+    #     recipe_info.append(collection_one[i]['recipe'])
+    #     recipe_info2.append(collection_two[i]['recipe'])
+    #     recipe_info3.append(collection_three[i]['recipe'])
 
-    return render_template('home.html', subtitle='Welcome to the Internet Cookbook', text='Browse the recipes or search for one', row_one=recipe_info, row_two=recipe_info2, row_three=recipe_info3)      # this prints HTML to the webpage
+    return render_template('home.html', subtitle='Welcome to the Internet Cookbook', text='Browse the recipes or search for one')      # this prints HTML to the webpage
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -129,11 +137,30 @@ def search_results(search):
     recipe_info = []
     for i in range(len(collection)):
         recipe_info.append(collection[i]['recipe'])
-        
 
-    
     return render_template('results.html', subtitle=subtitle, recipes=recipe_info)
+
+@app.route("/save", methods=['POST'])
+def save_to_database():
     
+    saved_recipe = request.form['saveBtn']
+    
+    if name is None:
+        return redirect(url_for('login'))
+    else:
+        recipe = Recipe(username=name, recipe_url=saved_recipe)
+        db.session.add(recipe)
+        db.session.commit()
+    user_recipes = Recipe.query.filter_by(username=name).all()
+    return render_template('saved_recipes.html', data=user_recipes)
+
+@app.route("/redirect", methods=['GET','POST'])
+def go_to_saved():
+    if name is None:
+        return redirect(url_for('login'))
+    user_recipes = Recipe.query.filter_by(username=name).all()
+    return render_template('saved_recipes.html', username=name, data=user_recipes)
+
 if __name__ == '__main__':               # this should always be at the end
     app.run(debug=True, host="0.0.0.0")
 

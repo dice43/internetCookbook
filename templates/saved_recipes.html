@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/main.css">
+
+
+<h2>Saved Recipes</h2>
+<h3>You are logged in as {{ username }}</h3>
+{% for item in data %}
+<tr>
+    <td>
+        <a href="{{ item.recipe_url }}", onclick="window.open('{{ item.recipe_url }}')"><p>{{ item.recipe_url }}</p></a>
+    </td>
+</tr>
+{% endfor %}
+
+{% endblock content %}

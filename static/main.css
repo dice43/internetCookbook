@@ -9,12 +9,21 @@ body {
 } */
 
 h1, h2, h3, h4, h5, h6 {
+  text-align: center;
   color: #444444;
-  
+}
+
+.home_text{
+  text-align: center;
+  color: #ffe5b4
 }
 
 .welc{
   text-align: center;
+  text-decoration-style: solid;
+  font-size: 50px;
+  font-weight: bold;
+  color: #ffe5b4;
 }
 
 p{
@@ -109,23 +118,6 @@ a.article-title:hover {
   margin-top: 20px;
 }
 
-.image{
-  width: 750px;
-  height: 100px;
-  margin: 25px;
-}
-
-/* .column{
-  display: inline-block;
-  float: left;
-  width: 33.33%;
-  padding: 2px;
-}
-
-.row::after{
-  text-align: center  
-} */
-
 img{
   border: lightcoral;
   box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 16);
@@ -133,8 +125,9 @@ img{
 
 .results{
     object-fit: cover;
-    width: 250px;
-    height: 250px;
+    margin: 0px;
+    width: 200px;
+    height: 200px;
 }
 
 form.search input[type=text] {
@@ -169,14 +162,55 @@ form.search::after {
   display: inline-block;
   width: 300px;
   height: 300px;
+  margin: 25px;
+  margin-bottom: 30px;
+  background-color: #cbd5db;
+}
+
+.label{
+  font-style: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(5, 66, 41);
+  
+}
+
+.Title{
+  text-align: center;
+  text-decoration-style: solid;
+  font-style: oblique;
+  font-size: 45px;
+  font-weight: bold;
+  color: #ffe5b4;
 }
 
 .container {
-  background-color: #ffffff;
-  text-align: centre;
+  text-align: center;
 }
 
-.block img {
-  width: 200px;
-  height: 200px;
+.block img{
+  align-content: center;
+  width: 250px;
+  height: 250px;
+}
+
+.column{
+  float: left;
+  width: 30%;
+  padding: 2px;
+}
+
+.food{
+  text-align: center;
+  color: rgb(10, 92, 41);
+  font-size: medium;
+}
+
+.contentbox{
+  box-sizing: content-box;
+  width: 300;
+  height: 300;
+  background-color: beige;
+  padding: 2px;
+  border: 2px solid #ffe5b4;
 }
